@@ -1,3 +1,4 @@
+#!/bin/bash
 set -e
 
 FILES=('arialbd.ttf'
@@ -27,7 +28,7 @@ read -p 'Path for Windows partition (C:): ' c_path
 echo 'Copying font files...'
 mkdir -p "${LOCAL_FONTS_PATH}"
 for file in "${FILES[@]}"; do
-    cp -v "${c_path}/Windows/Fonts/${file}" "${LOCAL_FONTS_PATH}"
+    cp -v "${c_path}/${file}" "${LOCAL_FONTS_PATH}"
 done
 
 echo 'Rebuilding font cache...'

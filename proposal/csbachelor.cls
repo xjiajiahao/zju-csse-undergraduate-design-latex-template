@@ -224,6 +224,13 @@
   \fancyhead[C]{\songti\xiaowu 浙江大学本科毕业论文~外文翻译}
   \fancyfoot[C]{\songti\xiaowu \thepage}
 }
+\fancypagestyle{wenxianzongshu}{
+  \fancyhf{}
+  %\fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业论文}
+  %\fancyhead[R]{\xiaowu\songti\leftmark}
+  \fancyhead[C]{\songti\xiaowu 浙江大学本科毕业论文~文献综述}
+  \fancyfoot[C]{\songti\xiaowu \thepage}
+}
 %\fancyhf{}
 %\fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业论文}
 %\fancyhead[R]{\xiaowu\songti\leftmark}

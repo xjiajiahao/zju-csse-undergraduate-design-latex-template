@@ -72,8 +72,21 @@
     \include{data/waiwenfanyi}
   }
 
-  \backmatter
+%  \backmatter
 
   \includepdf[pages=-]{data/waiwenyuanwen.pdf}
+
+  {
+    \pagestyle{wenxianzongshu}
+    \makeatletter
+      \let\ps@plain\ps@wenxianzongshu
+    \makeatother
+    \setcounter{page}{1}
+
+    \renewcommand{\addcontentsline}[3]{}
+
+    \include{data/wenxianzongshu}
+  }
+
 
 \end{document}

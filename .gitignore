@@ -11,4 +11,4 @@
 *.toc
 *.xdv
 **/*.synctex.gz
-**/*.pdf
+**/main.pdf

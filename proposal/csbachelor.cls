@@ -34,7 +34,7 @@
 \fi
 
 %\RequirePackage[top=2.0cm,bottom=2.4cm,left=3.4cm,right=2.4cm,includehead,includefoot]{geometry}
-\RequirePackage[top=2.0cm,bottom=2.4cm,left=3.4cm,right=2.4cm,includefoot]{geometry}
+\RequirePackage[top=2.5cm,bottom=2.0cm,left=2.5cm,right=2.0cm,includefoot]{geometry}
 
 \RequirePackage{ifthen}
 \RequirePackage{calc}
@@ -105,6 +105,9 @@
 \RequirePackage{enumitem}
 \setlist{noitemsep}
 
+% % Jiahao Xie, to allow arbitrary sizes of font
+% \usepackage{lmodern}
+
 \let\oldthebibliography\thebibliography
 \let\endoldthebibliography\endthebibliography
 \renewenvironment{thebibliography}[1]{\begin{oldthebibliography}{#1}\setlength{\itemsep}{0em}\setlength{\parskip}{0em}}{\end{oldthebibliography}}
@@ -174,32 +177,35 @@
 \setcounter{secnumdepth}{4}
 
 % 张海
-\renewcommand*{\thesection}{\arabic{section}.}
+\renewcommand*{\thesection}{\arabic{section}}
 \renewcommand*{\thefigure}{\arabic{figure}}
 \renewcommand*{\thetable}{\arabic{table}}
 
+\RequirePackage{zhnumber}
+
 % 张海
 %\titleformat{\chapter}[block]{\sanhao\heiti\filcenter}{第 \thechapter{} 章}{1em}{}{}
-\titleformat{\chapter}[block]{\xiaoer\songti\bfseries\filcenter}{}{0em}{}{}
-\titlespacing{\chapter}{0em}{0em}{\baselineskip}
+\titleformat{\chapter}[block]{\sanhao\stfangsong\bfseries\filcenter}{\zhnumber{\thechapter}、}{0.5em}{}{}
+\titlespacing{\chapter}{0em}{-2em}{0.5em}
 % 张海
 %\titlecontents{chapter}[1.5em]{}{第 \thecontentslabel{} 章\hspace{1em}}{}{\titlerule*[10pt]{.}\contentspage}
-\titlecontents{chapter}[1.5em]{}{\songti\sihao\bfseries}{}{\songti\sihao\bfseries\titlerule*[5pt]{.}\contentspage}
+\titlecontents{chapter}[0em]{}{\stfangsong\xiaosi\bfseries\zhnumber{\thecontentslabel}、\hspace{0.5em}}{}{\stfangsong\xiaosi\titlerule*[3pt]{.}\contentspage}
 
 % 张海
 %\titleformat{\section}[hang]{\sihao\heiti}{\thesection}{1em}{}{}
-\titleformat{\section}[hang]{\sanhao\heiti\bfseries}{\thesection}{1em}{}{}
-\titlespacing{\section}{0em}{\baselineskip}{\baselineskip}
+\titleformat{\section}[hang]{\xiaosan\stfangsong\bfseries}{\thesection.}{1em}{}{}
+\titlespacing{\section}{0em}{0.5em}{0.5em}
 % 张海
 %\titlecontents{section}[2.2em]{}{\hspace{1em}\thecontentslabel\hspace{1em}}{}{\titlerule*[7pt]{.}\contentspage}
-\titlecontents{section}[3em]{}{\thecontentslabel\hspace{1em}}{}{\titlerule*[5pt]{.}\contentspage}
+\titlecontents{section}[1em]{}{\stfangsong\xiaosi\bfseries\thecontentslabel.\hspace{0.75em}}{}{\titlerule*[3pt]{.}\contentspage}
 
-\titleformat{\subsection}[hang]{\xiaosi\heiti}{\thesubsection}{1em}{}{}
+\titleformat{\subsection}[hang]{\sihao\stfangsong\bfseries}{\thesubsection}{1em}{}{}
 \titlespacing{\subsection}{0em}{\baselineskip}{\baselineskip}
-\titlecontents{subsection}[5em]{}{\thecontentslabel\hspace{1em}}{}{\titlerule*[5pt]{.}\contentspage}
+\titlecontents{subsection}[2em]{}{\stfangsong\xiaosi\thecontentslabel\hspace{0.75em}}{}{\titlerule*[3pt]{.}\contentspage}
 
-\titleformat{\subsubsection}[hang]{\xiaosi}{\thesubsubsection}{1em}{}{}
-\titlespacing{\subsubsection}{0pt}{0.0\baselineskip}{0.0\baselineskip}
+\titleformat{\subsubsection}[hang]{\sihao\stfangsong\bfseries}{\thesubsubsection}{1em}{}{}
+\titlespacing{\section}{0em}{0.5em}{0.5em}
+% \titlespacing{\subsubsection}{0pt}{0.0\baselineskip}{0.0\baselineskip}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -208,34 +214,33 @@
 %\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \fancypagestyle{toc}{
   \fancyhf{}
-  \fancyhead[C]{\songti\xiaowu 浙江大学本科毕业论文~开题报告}
+  \fancyhead[LE]{\songti\xiaowu 浙江大学本科毕业论文（设计）}
+  \fancyhead[RO]{\songti\xiaowu \zjutitlec}
 }
 \fancypagestyle{kaitibaogao}{
   \fancyhf{}
-  %\fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业论文}
-  %\fancyhead[R]{\xiaowu\songti\leftmark}
-  \fancyhead[C]{\songti\xiaowu 浙江大学本科毕业论文~开题报告}
+  \fancyhead[LE]{\songti\xiaowu 浙江大学本科毕业论文（设计）}
+  \fancyhead[RO]{\songti\xiaowu \zjutitlec}
   \fancyfoot[C]{\songti\xiaowu \thepage}
 }
 \fancypagestyle{waiwenfanyi}{
   \fancyhf{}
-  %\fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业论文}
-  %\fancyhead[R]{\xiaowu\songti\leftmark}
-  \fancyhead[C]{\songti\xiaowu 浙江大学本科毕业论文~外文翻译}
+  \fancyhead[LE]{\songti\xiaowu 浙江大学本科毕业论文（设计）}
+  \fancyhead[RO]{\songti\xiaowu \zjutitlec}
   \fancyfoot[C]{\songti\xiaowu \thepage}
+
 }
 \fancypagestyle{wenxianzongshu}{
   \fancyhf{}
-  %\fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业论文}
-  %\fancyhead[R]{\xiaowu\songti\leftmark}
-  \fancyhead[C]{\songti\xiaowu 浙江大学本科毕业论文~文献综述}
+  \fancyhead[LE]{\songti\xiaowu 浙江大学本科毕业论文（设计）}
+  \fancyhead[RO]{\songti\xiaowu \zjutitlec}
   \fancyfoot[C]{\songti\xiaowu \thepage}
 }
 %\fancyhf{}
 %\fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业论文}
 %\fancyhead[R]{\xiaowu\songti\leftmark}
 %\fancyfoot[C]{\xiaowu\thepage}
-\renewcommand{\contentsname}{\centerline{\heiti\sanhao\mdseries 目~录}}
+\renewcommand{\contentsname}{\hfill \stfangsong\sanhao\bfseries 目~~~~~~录 \hfill}
 \renewcommand{\listfigurename}{\centerline{图~目~录}}
 \renewcommand{\listtablename}{\centerline{表~目~录}}
 \setcounter{tocdepth}{2}  % 设置目录的深度到 subsection
@@ -253,9 +258,11 @@
 \newtheoremstyle{zjutheorem}
    {9pt}{9pt}{\ttfamily}{0pt}{\lishu}{：}{0pt}{}
 \theoremstyle{zjutheorem}
-\newtheorem{zjuhypothsis}{假设~}[chapter]
+\newtheorem{zjutheorem}{定理~}[section]
+\newtheorem{zjuassumption}[zjutheorem]{假设~}
+\newtheorem{zjulemma}[zjutheorem]{引理~}
+\newtheorem{zjuremark}[zjutheorem]{备注~}
 \newtheorem{zjudefine}{定义~}[chapter]
-\newtheorem{zjutheorem}{定理~}[chapter]
 \newtheorem{zjuproposition}{命题~}[chapter]
 \newenvironment{zjuproof}{\begin{proof}[\textnormal{\lishu 证明~}]}{\end{proof}}
 \newcolumntype{.}{D{.}{.}{2.4}}

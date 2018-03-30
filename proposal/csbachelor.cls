@@ -200,7 +200,7 @@
 \titlecontents{section}[1em]{}{\stfangsong\xiaosi\bfseries\thecontentslabel.\hspace{0.75em}}{}{\titlerule*[3pt]{.}\contentspage}
 
 \titleformat{\subsection}[hang]{\sihao\stfangsong\bfseries}{\thesubsection}{1em}{}{}
-\titlespacing{\subsection}{0em}{\baselineskip}{\baselineskip}
+\titlespacing{\subsection}{0em}{0.5em}{0.5em}
 \titlecontents{subsection}[2em]{}{\stfangsong\xiaosi\thecontentslabel\hspace{0.75em}}{}{\titlerule*[3pt]{.}\contentspage}
 
 \titleformat{\subsubsection}[hang]{\sihao\stfangsong\bfseries}{\thesubsubsection}{1em}{}{}

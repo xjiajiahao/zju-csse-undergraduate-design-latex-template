@@ -99,6 +99,7 @@
 \widowpenalty=10000
 \setlength{\parsep}{0em}
 \setlength{\parskip}{0em}
+\RequirePackage{indentfirst}
 \setlength{\parindent}{2em}
 \setlength{\itemsep}{0em}
 

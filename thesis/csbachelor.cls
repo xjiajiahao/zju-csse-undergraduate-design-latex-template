@@ -34,7 +34,7 @@
 \fi
 
 %\RequirePackage[top=2.0cm,bottom=2.4cm,left=3.4cm,right=2.4cm,includehead,includefoot]{geometry}
-\RequirePackage[top=38mm,bottom=38mm,left=32mm,right=32mm,includefoot]{geometry}
+\RequirePackage[top=2.5cm,bottom=2.0cm,left=2.5cm,right=2.0cm,includefoot]{geometry}
 
 \RequirePackage{ifthen}
 \RequirePackage{calc}
@@ -65,7 +65,7 @@
 % 张海
 %\RequirePackage[CJKtextspaces,CJKmathspaces,slantfont,boldfont]{xeCJK}
 \RequirePackage[slantfont,boldfont]{xeCJK}
-\setCJKmainfont{SimSun}
+\setCJKmainfont{STFangsong}  % @NOTE the stupid template uses fangsong as the main font
 \setCJKsansfont{SimHei}
 %\setCJKmonofont{SimSun}
 \setCJKmonofont{SimHei}
@@ -94,7 +94,7 @@
 \RequirePackage{threeparttable}
 \RequirePackage{array}
 
-\setlength{\headheight}{22pt}
+\setlength{\headheight}{30pt}
 \setlength{\footskip}{1.3cm}
 \raggedbottom
 
@@ -133,6 +133,7 @@
 %\DeclareRobustCommand{\qihao}{\fontsize{5.5pt}{\baselineskip}\selectfont}
 %\DeclareRobustCommand{\bahao}{\fontsize{5pt}{\baselineskip}\selectfont}
 % 张海
+\DeclareRobustCommand{\fortyeight}{\fontsize{48pt}{57.6pt}\selectfont}
 \DeclareRobustCommand{\chuhao}{\fontsize{42pt}{50.4pt}\selectfont}
 \DeclareRobustCommand{\xiaochu}{\fontsize{36pt}{43.2pt}\selectfont}
 \DeclareRobustCommand{\yihao}{\fontsize{26pt}{31.2pt}\selectfont}
@@ -183,27 +184,48 @@
 
 % 张海
 \xpatchcmd{\frontmatter}{\pagenumbering{roman}}{\pagenumbering{Roman}}{}{}
-\renewcommand*{\thechapter}{第 \arabic{chapter} 章}
+\renewcommand*{\thechapter}{\arabic{chapter}}
 \renewcommand*{\thesection}{\arabic{chapter}.\arabic{section}}
 \renewcommand*{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand*{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
 \RequirePackage{chngcntr}
-\xpatchcmd{\c@t@sin}{\@nameuse{the#2}.}{\arabic{#2}-}{}{}
+\xpatchcmd{\c@t@sin}{\@nameuse{the#2}.}{\arabic{#2}.}{}{}
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
 
-\titleformat{\chapter}[block]{\linespread{1}\heiti\sanhao\bfseries\filcenter}{\thechapter}{1em}{}{}
-\titlespacing{\chapter}{0em}{0pt}{18pt}
-\titlecontents{chapter}[0em]{}{\songti\sihao\thecontentslabel\hspace{1em}}{\songti\sihao}{\songti\sihao\titlerule*[5pt]{.}\contentspage}
+\RequirePackage{zhnumber}
+\RequirePackage{setspace}
+\renewcommand{\appendixname}{附录}
+\newcommand{\todayinchinese}{\number\year 年 \number\month 月 \number\day 日}
 
-\titleformat{\section}[hang]{\linespread{1}\heiti\sihao\bfseries}{\thesection}{1em}{}{}
+% to hide entry from table of contents
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+%\titleformat{\chapter}[block]{\linespread{1}\heiti\sanhao\bfseries\filcenter}{\thechapter}{1em}{}{}
+\renewcommand{\thepart}{\arabic{part}}
+
+\titleformat{\part}[display]{\xiaochu\stfangsong\bfseries\filcenter}{\fortyeight\mdseries\heiti\filcenter 第\zhnumber{\thepart}部分}{0.5em}{}{}
+
+
+\titleformat{\chapter}[block]{\xiaosan\stfangsong\bfseries\filcenter}{第\zhnumber{\thechapter}章}{1em}{}{}
+% \titlespacing{\chapter}{0em}{0pt}{18pt}
+\titlespacing{\chapter}{0em}{-2em}{1em}
+%\titlecontents{chapter}[0em]{}{\songti\sihao\thecontentslabel\hspace{1em}}{\songti\sihao}{\songti\sihao\titlerule*[5pt]{.}\contentspage}
+\titlecontents{chapter}[0em]{}{\fangsong\xiaosi\thecontentslabel\hspace{1.5em}}{}{\fangsong\xiaosi\titlerule*[3pt]{.}\contentspage}
+
+
+\titleformat{\section}[hang]{\linespread{1}\stfangsong\sihao\bfseries}{\thesection}{1em}{}{}
 \titlespacing{\section}{0em}{24pt}{6pt}
-\titlecontents{section}[2em]{}{\songti\xiaosi\thecontentslabel\hspace{1em}}{}{\songti\xiaosi\titlerule*[5pt]{.}\contentspage}
+%\titlecontents{section}[2em]{}{\songti\xiaosi\thecontentslabel\hspace{1em}}{}{\songti\xiaosi\titlerule*[5pt]{.}\contentspage}
+\titlecontents{section}[0em]{}{\fangsong\xiaosi\thecontentslabel\hspace{0.75em}}{}{\titlerule*[3pt]{.}\contentspage}
 
-\titleformat{\subsection}[hang]{\linespread{1}\heiti\shisanbang}{\thesubsection}{1em}{}{}
+
+\titleformat{\subsection}[hang]{\linespread{1}\stfangsong\xiaosi}{\thesubsection}{1em}{}{}
 \titlespacing{\subsection}{0em}{12pt}{6pt}
-\titlecontents{subsection}[4em]{}{\songti\wuhao\thecontentslabel\hspace{1em}}{}{\songti\wuhao\titlerule*[5pt]{.}\contentspage}
+%\titlecontents{subsection}[4em]{}{\songti\wuhao\thecontentslabel\hspace{1em}}{}{\songti\wuhao\titlerule*[5pt]{.}\contentspage}
+\titlecontents{subsection}[0em]{}{\fangsong\xiaosi\thecontentslabel\hspace{0.75em}}{}{\titlerule*[3pt]{.}\contentspage}
 
 \titleformat{\subsubsection}[hang]{\linespread{1}\heiti\xiaosi}{\thesubsubsection}{1em}{}{}
 \titlespacing{\subsubsection}{0pt}{12pt}{6pt}
@@ -215,18 +237,18 @@
 \renewcommand{\sectionmark}[1]{}
 \fancypagestyle{frontmatter}{
   \fancyhf{}
-  \fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业论文}
-  \fancyhead[R]{\xiaowu\songti \rightmark}
+  \fancyhead[LE]{\songti\xiaowu 浙江大学本科毕业论文（设计）}
+  \fancyhead[RO]{\songti\xiaowu \zjutitlec}
   \fancyfoot[C]{\songti\xiaowu \thepage}
 }
 \fancypagestyle{mainmatter}{
   \fancyhf{}
-  \fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业论文}
-  \fancyhead[R]{\xiaowu\songti \thechapter \hspace{1em} \rightmark}
+  \fancyhead[LE]{\songti\xiaowu 浙江大学本科毕业论文（设计）}
+  \fancyhead[RO]{\songti\xiaowu \zjutitlec}
   \fancyfoot[C]{\songti\xiaowu \thepage}
 }
 \newcommand{\contentsformat}{\heiti\sanhao\bfseries}
-\renewcommand{\contentsname}{目录}
+\renewcommand{\contentsname}{\hfill \stfangsong\sanhao\bfseries 目~~~~~~次 \hfill}
 \renewcommand\tableofcontents{
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -248,6 +270,7 @@
 \makenomenclature
 \renewcommand{\figurename}{图} % 插图题头
 \renewcommand{\tablename}{表} % 插表题头
+\renewcommand{\captionfont}{\wuhao\stfangsong\bfseries}
 \renewcommand{\captionlabeldelim}{} %% 定义如 "图(表)1: 示例" 中的间隔符号,如 ":" ,这里定义为空
 \renewcommand{\captionlabelsep}{\hspace{1em}} %定义图表编号与标题间的间隔距离
 \setlength{\belowcaptionskip}{2mm}

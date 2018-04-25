@@ -17,6 +17,9 @@
 \tikzstyle{block} = [draw, rectangle, minimum height=2em]
 \tikzset{>=latex}
 
+\usepackage{pdfpages}
+
+
 % 一些全局工具的定义
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
@@ -33,15 +36,19 @@
   \zjutitle{标题}
            {Title}
   % 作者：{中文姓名}{英文}{学号}
-  \zjuauthor{姓名}{Name}{313XXXXXXXX}
+  \zjuauthor{姓名}{Name}{314XXXXXXXX}
   % 指导教师：{导师中文名}{导师英文名}
   \zjumentor{导师姓名}{Supervisor name}
+  % 合作导师：{导师中文名}{导师英文名}
+  \zjucomentor{合作导师姓名}{Comentor name}
   % 个人信息：{年级}{专业名称}
-  \zjuinfo{2013级}{计算机科学与技术}{Computer Science and Technology}
+  \zjuinfo{2014级}{计算机科学与技术}{Computer Science and Technology}
   % 学院信息：{学院中文}{学院英文}
   \zjucollege{计算机科学与技术学院}{College of Computer Science and Technology}
   % 日期：{提交日期}{Submitted Date}
-  \zjudate{2017 年 6 月 5 日}{June 5, 2017}
+  \zjudate{\todayinchinese}{\today}
+  % \zjudate{2018 年 5 月 30 日}{May 30, 2018}
+
 
 %==============================================================
 
@@ -50,11 +57,9 @@
 
     \include{data/cover-zh}
     \cleardoublepage
-    \include{data/cover-en}
-    \cleardoublepage
+    % \include{data/cover-en}
+    % \cleardoublepage
 
-    \include{data/agreement}
-    \cleardoublepage
   }
 
   {
@@ -65,16 +70,35 @@
       \let\ps@plain\ps@frontmatter
     \makeatother
 
+    \include{data/agreement}
+    \include{data/acknowledgment}
+    \cleardoublepage
+
     \include{data/abstract-zh}
     \include{data/abstract-en}
 
     \tableofcontents
     \newpage
     \thispagestyle{empty}
+    \cleardoublepage
+
   }
 
   {
     \mainmatter
+
+    \pagestyle{empty}
+    \makeatletter
+    \let\ps@plain\ps@empty
+    \makeatother
+
+    \tocless\part{毕业论文（设计）}
+    \cleardoublepage
+  }
+
+  {
+    \mainmatter
+
 
     \pagestyle{mainmatter}
     \makeatletter
@@ -82,20 +106,21 @@
     \makeatother
 
     \include{data/chapter-1}
-    \cleardoublepage
     \include{data/chapter-2}
-    \cleardoublepage
     \include{data/chapter-3}
-    \cleardoublepage
     \include{data/chapter-4}
-    \cleardoublepage
 
-    \renewcommand{\thechapter}{}
-    \include{data/bibliography}
-    \cleardoublepage
+    {
+        \renewcommand{\thechapter}{}
+        \songti\wuhao
+        \setstretch{1.25}
+        \include{data/bibliography}
+    }
 
-    \include{data/acknowledgment}
-    \cleardoublepage
+    \include{data/resume}
+    % @NOTE appendix is optional, feel free to comment the following line if you don't need appendix
+    \include{data/appendix}
+
   }
 
   {
@@ -104,10 +129,42 @@
     \pagestyle{empty}
 
     \include{data/assignment}
+    \include{data/assessment}
+  }
+
+  {
+    \backmatter
+
+    \pagestyle{empty}
+    \makeatletter
+    \let\ps@plain\ps@empty
+    \makeatother
+
+    \tocless\part{文献综述和开题报告}
     \cleardoublepage
 
-    \include{data/assessment}
-    \cleardoublepage
+    \addtocontents{toc}{\protect\noindent\stfangsong\sihao \textbf{第二部分 \; 文献综述和开题报告} \vspace*{0.25em} \par}
+
+    \addtocontents{toc}{\protect\noindent\stfangsong\xiaosi 文献综述和开题报告封面.......................................................................................................... \vspace*{0.25em} \par}
+
+    \addtocontents{toc}{\protect\noindent\stfangsong\xiaosi 指导教师对文献综述和开题报告具体内容要求...................................................................... \vspace*{0.25em} \par}
+
+    \addtocontents{toc}{\protect\noindent\stfangsong\xiaosi 目录.............................................................................................................................................. \vspace*{0.25em} \par}
+
+    \addtocontents{toc}{\protect\noindent\stfangsong\xiaosi 文献综述...................................................................................................................................... \hfill 1 \vspace*{0.25em} \par}
+
+    \addtocontents{toc}{\protect\noindent\stfangsong\xiaosi 开题报告......................................................................................................................................\hfill 11 \vspace*{0.25em} \par}
+
+    \addtocontents{toc}{\protect\noindent\stfangsong\xiaosi 文献翻译...................................................................................................................................... \hfill 18 \vspace*{0.25em} \par}
+
+    \addtocontents{toc}{\protect\noindent\stfangsong\xiaosi 外文原文...................................................................................................................................... \vspace*{0.25em} \par}
+
+    \addtocontents{toc}{\protect\noindent\stfangsong\xiaosi 《浙江大学本科生文献综述和开题报告考核表》......................................................................\vspace*{0.25em} \par}
+
+    \includepdf[pages=-]{data/proposal.pdf}
+
   }
+
+
 
 \end{document}

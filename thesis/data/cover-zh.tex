@@ -2,6 +2,12 @@
   \setlength{\parindent}{0em}
 
   {
+      \songti\wuhao\bfseries
+      \vspace*{-3em}
+      \hfill 涉密论文\; $\square$ \;\; 公开论文\; $\square$ \;\;
+      \vspace*{4em}
+  }
+  {
     \linespread{1}
 
     \vspace*{-1em}
@@ -10,12 +16,12 @@
       \includegraphics[width=108mm]{data/cover-zh/xiaoming}
     \end{center}
 
-    \vspace{-1.5em}
+    \vspace{0.5em}
 
     {
-      \songti\erhao\bfseries
+      \heiti\yihao\bfseries
       \centering
-      本~~科~~生~~毕~~业~~论~~文 \par
+      本~~科~~生~~毕~~业~~论~~文~~（设计） \par
     }
 
     \vspace{1em}
@@ -25,20 +31,21 @@
     \end{center}
   }
 
-  \vspace{9em}
+  \vspace{0em}
 
   {
     \linespread{1.6}
-    \songti\sanhao\bfseries
-    \centering
+    \stfangsong\sanhao\bfseries
+    %\centering
     \newlength{\titlelength}
     \setlength{\titlelength}{22em}
-    题目 \; \underline{\makebox[\titlelength]{\zjutitlec}} \\
-    姓名 \; \underline{\makebox[\titlelength]{\zjuauthornamec}} \\
-    学号 \; \underline{\makebox[\titlelength]{\zjuauthorid}} \\
-    指导教师 \; \underline{\makebox[\titlelength - 2em]{\zjumentorc}} \\
-    年级与专业 \; \underline{\makebox[\titlelength - 3em]{\zjugrade \; \zjumajorc}} \\
-    学院 \; \underline{\makebox[\titlelength]{\zjucollegec}} \\
-    提交日期 \; \underline{\makebox[\titlelength - 2em]{\zjudatec}} \par
+    \hspace*{5em} 题目 \underline{\makebox[17em]{\zjutitlec}} \vspace{4em}\\
+    \hspace*{5em} 姓名与学号 \underline{\makebox[11.5em]{\zjuauthornamec \zjuauthorid}} \\
+    %\hspace*{5em} 学号 \; \underline{\makebox[\titlelength]{\zjuauthorid}} \\
+    \hspace*{5em} 指导教师 \underline{\makebox[12.5em]{\zjumentorc}} \\
+    \hspace*{5em} 合作导师 \underline{\makebox[12.5em]{\zjucomentorc}} \\
+    \hspace*{5em} 年级与专业 \underline{\makebox[11.5em]{\zjugrade \  \zjumajorc}} \\
+    \hspace*{5em} 所在学院 \underline{\makebox[12.5em]{\zjucollegec}} \vspace{2em}\\
+    \hspace*{5em} 提交日期 \; \underline{\makebox[12.5em]{\zjudatec}} \par
   }
 }

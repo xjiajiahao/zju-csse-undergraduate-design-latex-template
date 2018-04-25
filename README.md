@@ -1,4 +1,4 @@
-Updated (2018-3-30): 目前支持2014级的开题报告，暂未支持毕业论文
+Updated (2018-4-25): 目前已支持2014级的开题报告和毕业论文
 
 # ZJU CS/SE Undergraduate Thesis LaTeX Template
 

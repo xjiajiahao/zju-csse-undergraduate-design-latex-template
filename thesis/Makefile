@@ -3,4 +3,4 @@ main:
 
 clean:
 	latexmk -bibtex -c
-	rm -f main.bbl main.nlo main.xdv
+	rm -f main.bbl main.nlo main.xdv main.run.xml

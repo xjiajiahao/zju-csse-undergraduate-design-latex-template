@@ -10,5 +10,6 @@
 *.swp
 *.toc
 *.xdv
+*.run.xml
 **/*.synctex.gz
 **/main.pdf

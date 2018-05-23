@@ -1,9 +1,10 @@
-Updated (2018-5-23):  Updated to the latest template (2018.5.18) now.
+Updated (2018-5-23):  Updated to the latest template (2018.5.18).
 
 #Note
+
 1. Two additional fonts are required to avoid the fake bold font problem: `HYCuFangSongJ（汉仪粗仿宋）` and `FandolSong-Bold.otf`.
 
-2. One show modify thesis/data/part2.tex to manually specify the page number appeared in the table of contents.
+2. One should modify `thesis/data/part2.tex` to manually specify the page number appeared in the table of contents.
 
 # ZJU CS/SE Undergraduate Thesis LaTeX Template
 
